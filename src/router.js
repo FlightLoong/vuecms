@@ -7,12 +7,11 @@ import Users from './components/user/Users.vue'
 
 /**
  *  bug:
- *     NavigationDuplicated {_name: "NavigationDuplicated", name: "NavigationDuplicated"}
- *  
+ *     NavigationDuplicated{_name: "NavigationDuplicated", name: "NavigationDuplicated"}
  *  解决方法如下：
  */
 const originalPush = Router.prototype.push
-Router.prototype.push = function push(location) {
+Router.prototype.push = function push (location) {
   return originalPush.call(this, location).catch(err => err)
 }
 
