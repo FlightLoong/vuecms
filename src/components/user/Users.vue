@@ -404,7 +404,7 @@ export default {
     },
 
     setRoleDialogClosed () {
-      this.selectedRoleId = '',
+      this.selectedRoleId = ''
       this.userInfo = {}
     }
   }

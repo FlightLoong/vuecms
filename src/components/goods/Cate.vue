@@ -40,7 +40,7 @@
           <el-tag size="mini" type="warning" v-else>三级</el-tag>
         </template>
         <!-- 操作 -->
-        <template slot="opt" slot-scope="scope">
+        <template slot="opt">
           <el-button type="primary" icon="el-icon-edit" size="mini">编辑</el-button>
           <el-button type="danger" icon="el-icon-delete" size="mini">删除</el-button>
         </template>
@@ -179,7 +179,6 @@ export default {
       this.cateList = res.data.result
       // 为总数据条数赋值
       this.total = res.data.total
-
     },
     // 监听 pagesize 改变
     handleSizeChange (newSize) {
@@ -197,7 +196,7 @@ export default {
       this.addCateDialogVisible = true
       this.getParentCateList()
     },
-    // 获取父级分类的数据列表 
+    // 获取父级分类的数据列表
     async getParentCateList () {
       const { data: res } = await this.$http.get('categories', {
         params: { type: 2 }
@@ -208,20 +207,17 @@ export default {
       }
 
       this.parentCateList = res.data
-      console.log(this.parentCateList)
     },
     // 选择项发生变化触发这个函数
     parentCateChanged () {
       // console.log(this.selectedKeys)
       // 如果 selectedKeys 数组中的 length 大于 0 ，
       // 证明选中的有父级分类，反之，就说明没有选中任何父级分类
-      if (this.selectedKeys.length > 0 ) {
+      if (this.selectedKeys.length > 0) {
         // 父级分类的 id
         this.addCateForm.cat_pid = this.selectedKeys[this.selectedKeys.length - 1]
         // 为当前父类的等级赋值
         this.addCateForm.cat_level = this.selectedKeys.length
-
-        return
       } else {
         // 父级分类的 id
         this.addCateForm.cat_pid = 0
@@ -277,4 +273,3 @@ export default {
   width: 100%;
 }
 </style>
-

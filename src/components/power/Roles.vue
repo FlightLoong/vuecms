@@ -176,7 +176,6 @@ export default {
       this.setRightDialogVisible = true
     },
 
-    // 
     async allotRights () {
       const keys = [
         ...this.$refs.treeRef.getCheckedKeys(),
