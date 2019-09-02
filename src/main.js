@@ -11,6 +11,10 @@ import './assets/css/global.css'
 import './assets/fonts/iconfont.css'
 
 import TreeTable from 'vue-table-with-tree-grid'
+import VueQuillEditor from 'vue-quill-editor'
+
+import dayjs from "dayjs"
+Vue.prototype.$dayjs = dayjs
 
 import axios from 'axios'
 // 配置请求的根路径
@@ -24,6 +28,12 @@ axios.interceptors.request.use(config => {
 Vue.prototype.$http = axios
 
 Vue.component('tree-table', TreeTable)
+
+// 导入富文本编辑器的样式并在 Vue 中绑定
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+Vue.use(VueQuillEditor)
 
 // 导入 element 全部组件
 // import ElementUI from 'element-ui'
