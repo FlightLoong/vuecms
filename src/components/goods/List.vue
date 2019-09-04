@@ -85,7 +85,6 @@ export default {
         item.add_time = this.$dayjs(item.add_time).format('YYYY-MM-DD HH:mm:ss')
       })
 
-
       this.goodslist = res.data.goods
       this.total = res.data.total
       console.log(this.goodslist)
